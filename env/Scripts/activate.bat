@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\Asus\Documents\PBP Gasal 20232024\shopping list\env
+set VIRTUAL_ENV=C:\Users\Asus\Documents\PBP_Gasal_20232024\shopping_list\env
 
 if not defined PROMPT set PROMPT=$P$G
 

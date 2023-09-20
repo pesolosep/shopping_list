@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Asus\Documents\PBP Gasal 20232024\shopping list\env"
+VIRTUAL_ENV="C:\Users\Asus\Documents\PBP_Gasal_20232024\shopping_list\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
