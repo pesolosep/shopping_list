@@ -30,7 +30,7 @@ PRODUCTION = env.bool('PRODUCTION', False)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*", '.vercel.app']
 
 
 # Application definition
@@ -81,8 +81,12 @@ WSGI_APPLICATION = 'shopping_list.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER' : 'postgres',
+        'PASSWORD' : 'GeGiQwuzojj8qyGKB6WT',
+        'HOST' : 'containers-us-west-64.railway.app',
+        'PORT' : '8076'
     }
 }
 # Set database settings automatically using DATABASE_URL.
