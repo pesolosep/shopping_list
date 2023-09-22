@@ -88,10 +88,13 @@ def show_json(request):
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def create_product(request):
- form = ProductForm(request.POST or None)
+    form = ProductForm(request.POST or None)
 
- if form.is_valid() and request.method == "POST":
+    if form.is_valid() and request.method == "POST":
      product = form.save(commit=False)
      product.user = request.user
      product.save()
      return HttpResponseRedirect(reverse('main:show_main'))
+     
+    context = {'form': form}
+    return render(request, "create_product.html", context)
