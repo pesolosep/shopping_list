@@ -1,13 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Shopping List Page</h1>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand">{{name}}</a>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'main:show_main' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'main:create_product' %}">Add a new product</a>
+        </li>
+      </ul>
+      <a class="navbar-brand" href="{% url 'main:logout' %}">Logout</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    </button>
+    </div>
+  </div>
+</nav>
 
-    <h5>Name:</h5>
-    <p>{{name}}</p>
-
-    <h5>Class:</h5>
-    <p>{{class}}</p>
+    <h5>Shopping List Page</h5>
 
     <table>
         <tr>
@@ -25,24 +38,26 @@
                 <td>{{product.amount}}</td>
                 <td>{{product.description}}</td>
                 <td>{{product.date_added}}</td>
+              <td>
+                <a href="{% url 'main:edit_product' product.pk %}">
+                    <button>
+                        Edit
+                    </button>
+                </a>
+                <a href="{% url 'main:delete_product' product.pk %}">
+                      <button>
+                          Delete
+                      </button>
+                  </a>
+            </td>
+        
             </tr>
         {% endfor %}
     </table>
     
     <h5>Sesi terakhir login: {{ last_login }}</h5>
     
-    <br />
     
-    <a href="{% url 'main:create_product' %}">
-        <button>
-            Add New Product
-        </button>
-    </a>
-
-    <a href="{% url 'main:logout' %}">
-        <button>
-            Logout
-        </button>
-    </a>
+  
 
 {% endblock content %}
